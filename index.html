@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Farm Dashboard</title>
+  <link rel="stylesheet" href="styles.css">
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+ 
+</head>
+<body>
+  
+  <header class="topbar">
+    <h2 id="pageTitle">GeoFert</h2>
+    <div class="icon">🔔</div>
+  </header>
+
+  <!-- Main Content Wrapper -->
+  <main>
+
+    <!-- HOME Dashboard -->
+    <section id="home" class="page active">
+      <div class="card"><h3>Crop Health Map</h3><p>Visualize field health and identify issues</p></div>
+      <div class="card"><h3>Trend Analysis</h3><p>Analyze agricultural data and forecasts</p></div>
+      <div class="card"><h3>AI Alerts & Advice</h3><p>Timely recommendations for optimal farming</p></div>
+      <div class="card"><h3>Digital Twin Farm</h3><p>Simulate actions, predict outcomes with AI</p></div>
+      <div class="card"><h3>Farm Reports</h3><p>Generate detailed reports and insights</p></div>
+    </section>
+
+    <!-- TREND ANALYSIS (with chart) -->
+    <section id="trend" class="page">
+      <h2>NDVI Trend Over Time</h2>
+      <p class="subtext">Measures crop greenness, indicating plant health.</p>
+     
+  <nav class="tabs">
+    <button class="tab active">🌱 NDVI</button>
+    <button class="tab">🌾 Soil Health</button>
+    <button class="tab">🌦 Weather</button>
+  </nav>
+      <div class="stats">
+        <div class="stat">
+          <div class="icon">🎯</div>
+          <div>
+            <h4>0.8–0.9</h4>
+            <p>Optimal Range</p>
+          </div>
+        </div>
+        <div class="stat">
+          <div class="icon">📊</div>
+          <div>
+            <h4>0.85</h4>
+            <p>Current Avg.</p>
+          </div>
+        </div>
+        <div class="stat">
+          <div class="icon">⚡</div>
+          <div>
+            <h4>+5%</h4>
+            <p>Growth Rate</p>
+          </div>
+        </div>
+      </div>
+      <!-- Tabs -->
+</section>
+    
+
+    <!-- AI ALERTS -->
+    <section id="alerts" class="page">
+      <h3>AI Alerts & Advice</h3>
+      <div class="alert urgent">
+        <h4>Severe Pest Infestation Detected</h4>
+        <p>Urgent action required in Sector 3.</p>
+        <button class="urgent-btn">Urgent</button>
+        <button class="done-btn">Done</button>
+      </div>
+      <div class="alert moderate">
+        <h4>Moderate Water Stress</h4>
+        <p>Soil moisture levels dropping in north field.</p>
+        <button class="done-btn">Done</button>
+      </div>
+      <div class="alert normal">
+        <h4>Optimal Nutrient Levels Confirmed</h4>
+        <p>No immediate adjustments needed.</p>
+        <button class="done-btn">Done</button>
+      </div>
+      <div class="alert moderate">
+        <h4>Early Fungal Growth in Greenhouse</h4>
+        <p>Monitor closely and apply organic fungicide.</p>
+        <button class="done-btn">Done</button>
+      </div>
+    </section>
+
+    <!-- DIGITAL TWIN FARM -->
+    <section id="twin" class="page">
+      <h3>Digital Twin Farm Simulation</h3>
+      <div class="metrics">
+        <p>Crop Health: 85%</p>
+        <p>Soil Moisture: 62%</p>
+        <p>Weather Risk: Low</p>
+      </div>
+      <h4>Simulation Actions</h4>
+      <div class="actions">
+        <button>💧 Irrigation ($250)</button>
+        <button>🐞 Pest Control ($180)</button>
+        <button>♻ Recycler ($300)</button>
+      </div>
+      <h4>Simulation Results</h4>
+      <p>Current State: Moderate stress, low yield</p>
+      <p>Optimized State: Healthy crops, improved yield</p>
+      <h4>Quick AI Advice</h4>
+      <ul>
+        <li>💡 Water Wisely – Check soil moisture before irrigating</li>
+        <li>💡 Early Pest Detection – Monitor crops daily</li>
+      </ul>
+    </section>
+
+    <!-- FARM REPORTS -->
+    <section id="reports" class="page">
+      <h3>Farm Reports</h3>
+      <button class="pdf">Download PDF Report</button>
+      <button class="excel">Download Excel Data</button>
+      <div class="report-card">
+        <h4>Yield Forecast</h4>
+        <p>Estimated crop production for the season.</p>
+      </div>
+      <div class="report-card">
+        <h4>Soil Condition Analysis</h4>
+        <p>Current soil health, nutrient levels, pH balance.</p>
+      </div>
+      <div class="report-card">
+        <h4>Pest & Disease Risks</h4>
+        <p>Identified potential threats with recommendations.</p>
+      </div>
+      <div class="report-card">
+        <h4>AI Suggested Actions</h4>
+        <p>Personalized recommendations for optimal farming.</p>
+      </div>
+    </section>
+
+    <!-- CROP HEALTH MAP -->
+    <section id="map" class="page">
+      <h3>Crop Health Map</h3>
+      <img src="" alt="Field Map Placeholder" class="placeholder">
+      <div class="modal">
+        <h4>🚨 Pest Hotspot Alert!</h4>
+        <p>A concentrated presence of pests has been detected.</p>
+        <button class="ok-btn">Got it!</button>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Bottom Navigation -->
+  <nav class="bottom-nav">
+    <a data-page="home" class="active">🏠 Home</a>
+    <a data-page="trend">📈 Trend</a>
+    <a data-page="alerts">🔔 Alerts</a>
+    <a data-page="twin">🌱 Twin Farm</a>
+    <a data-page="reports">📄 Reports</a>
+  </nav>
+
+  <!-- JS -->
+  <script>
+    // Page Switcher
+    const navLinks = document.querySelectorAll(".bottom-nav a");
+    const pages = document.querySelectorAll(".page");
+    const title = document.getElementById("pageTitle");
+
+    navLinks.forEach(link => {
+      link.addEventListener("click", () => {
+        navLinks.forEach(l => l.classList.remove("active"));
+        pages.forEach(p => p.classList.remove("active"));
+        link.classList.add("active");
+        document.getElementById(link.dataset.page).classList.add("active");
+
+        // update title
+        title.textContent = link.textContent
+          .replace("🏠","Home")
+          .replace("📈","Trend Analysis")
+          .replace("🔔","AI Alerts & Advice")
+          .replace("🌱","Digital Twin Farm")
+          .replace("📄","Farm Reports");
+      });
+    });
+
+    // Chart.js NDVI Chart (no animation + small size)
+    window.addEventListener("DOMContentLoaded", () => {
+      const ctx = document.getElementById("ndviChart").getContext("2d");
+      new Chart(ctx, {
+        type: "line",
+        data: {
+          labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun"],
+          datasets: [{
+            label: "NDVI Value",
+            data: [0.2, 0.4, 0.55, 0.7, 0.85, 0.9],
+            borderColor: "green",
+            backgroundColor: "rgba(0,128,0,0.1)",
+            fill: true,
+            tension: 0.3,
+            pointRadius: 4,
+            pointBackgroundColor: "darkgreen"
+          }]
+        },
+        options: {
+          responsive: true,
+          animation: false,   // 🚀 disable animations
+          plugins: {
+            legend: { display: true, position: "bottom" }
+          },
+          scales: {
+            y: {
+              suggestedMin: 0,
+              suggestedMax: 1,
+              title: { display: true, text: "NDVI" }
+            }
+          }
+        }
+      });
+    });
+  </script>
+</body>
+</html>
